@@ -5,11 +5,8 @@ import './Expenses.css'
 import { useState } from 'react'
 
 function Expenses(props) {
-    const expensesList = props.expenses.map(expense => {
-        return <ExpenseItem title={expense.title}
-                            amount={expense.amount}
-                            date={expense.date}/>
-    })
+
+
 
     const [filteredYear, setFilteredYear] = useState('2020')
 
@@ -18,11 +15,16 @@ function Expenses(props) {
     }
 
     return(
-        <div>
-            
+        <div>       
             <Card className="expenses">
-            <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-                {expensesList}
+                <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+                {props.items.map(expense => {
+                    return <ExpenseItem 
+                        key={expense.id}
+                        title={expense.title}
+                        amount={expense.amount}
+                        date={expense.date}/>
+                })}
             </Card>
         </div>
     )
