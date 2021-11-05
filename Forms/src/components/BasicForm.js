@@ -5,6 +5,7 @@ const isEmail = (value) => value.includes('@')
 
 const errorClass = value => !value ? 'form-control' : 'form-control invalid'
 
+// Test updated commit to see if my name is attached to this repo 
 const BasicForm = (props) => {
   const {
     value: firstNameValue, 
@@ -42,7 +43,7 @@ const BasicForm = (props) => {
     event.preventDefault()
     if(!formIsValid)
       return
-      
+
     resetFirstName()
     resetLastName()
     resetEmail()
